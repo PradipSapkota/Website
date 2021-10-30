@@ -1,35 +1,3 @@
-<!DOCTYPE html> 
 
-<html> 
-<head> 
- <title>Paragraph example</title> 
-</head> 
-<body> 
-<p>This is first paragraph.</p> 
- <p>This is second paragraph.</p>
- <p>this is third paragraph</p>
- </body> 
-</html>
-<!DOCTYPE html>
-<html>
-<head>
-<title>Font Tag in HTML</title>
-</head>
-<body>
-<img src="https://drive.google.com/file/d/1C_d1J6MPqgMl2SQLMhqF9N_p7tvbGy_X/view?usp=drivesdk" alt="example image" width="450"height="350">
-<h2>Example of Font Tag in HTML </h2>
-<p>General text without any Font tag attribute value</p>
-<p>
-<font color="orange">Text having normal font size and font face . Only
-changing
-font color </font>
-</p>
-<p>
-<font face="cursive">Text having different font face.</font>
-</p>
-<p>
-<font size="3">Text with Increased font size having default font type.
-</font>
-</p>
-</body>
-</html>
+
+from ursina import * from ursina.prefabs.\ first_person_controller \ import FirstPersonController app = Ursina() Sky() player = FirstPersonController() from ursina.shaders \ import basic_lighting_shader boxes = [] for n in range(12): for k in range(12): box = Button( color=color.white, model='sphere', position=(k,0,n), texture='grass', shader=basic_lighting_shader, parent=scene, origin_y=0.5 ) boxes.append(box) def input(key): for box in boxes: if box.hovered: if key =='left mouse down': new = Button( color=color.white, model='sphere', position=box.position+ mouse.normal, texture='grass', shader=basic_lighting_shader, parent=scene, origin_y=0.5 ) boxes.append(new) if key == 'right mouse down': boxes.remove(box) destroy(box) sword = Entity(model='assets\\blade', texture='assets\sword', rotation=(30,-40), position=(0.35,-0.6), parent=camera.ui, scale=(0.2,0.15)) def update(): if held_keys['left mouse']: sword.position = (0.45,-0.5) elif held_keys['right mouse']: sword.position = (0.45,-0
