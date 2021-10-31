@@ -1,3 +1,102 @@
+Pass by Reference:
+Pass by reference (also called pass by address) means to pass
+the reference of an argument in the calling function to the
+corresponding formal parameter of the called function so that a
+copy of the address of the actual parameter is made in
+memory, i.e. the caller and the callee use the same variable for
+the parameter. If the callee modifies the parameter variable, the
+effect is visible to the caller’s variable.
 
 
-from ursina import * from ursina.prefabs.\ first_person_controller \ import FirstPersonController app = Ursina() Sky() player = FirstPersonController() from ursina.shaders \ import basic_lighting_shader boxes = [] for n in range(12): for k in range(12): box = Button( color=color.white, model='sphere', position=(k,0,n), texture='grass', shader=basic_lighting_shader, parent=scene, origin_y=0.5 ) boxes.append(box) def input(key): for box in boxes: if box.hovered: if key =='left mouse down': new = Button( color=color.white, model='sphere', position=box.position+ mouse.normal, texture='grass', shader=basic_lighting_shader, parent=scene, origin_y=0.5 ) boxes.append(new) if key == 'right mouse down': boxes.remove(box) destroy(box) sword = Entity(model='assets\\blade', texture='assets\sword', rotation=(30,-40), position=(0.35,-0.6), parent=camera.ui, scale=(0.2,0.15)) def update(): if held_keys['left mouse']: sword.position = (0.45,-0.5) elif held_keys['right mouse']: sword.position = (0.45,-0
+Overview:
+1. Passes an argument by 
+reference.
+2. Callee gives a direct reference 
+to the programming element in 
+the calling code.
+3. The memory address of the 
+stored data is passed.
+4. Changes to the value have an 
+effect on the original data.
+#include<iostream>
+using namespace std;
+void swap(int &a, int &b)
+{
+int c=a;
+a=b;
+b=c;
+cout<<"The value in submodule
+:"<<a<<" "<<b<<endl;
+}
+int main()
+{
+int x=30,y=35;
+cout<<"b4 swapping: "<<x<<" 
+"<<y<<endl;
+swap(x,y);
+cout<<" After swapping 
+:"<<x<<" "<<y<<endl;
+return 0;
+}
+
+Return by Reference:
+Pointers and References in C++ held close relation with one
+another. The major difference is that the pointers can be
+operated on like adding values whereas references are just
+an alias(synonym) for another variable . Functions in C++ can
+return a reference as it’s returns a pointer. When function
+returns a reference it means it returns a implicit pointer.
+Return by reference is very different from Call by reference.
+
+#include <iostream>
+using namespace std;
+// Function to return as return by reference
+int& returnValue(int& x)
+{
+// Print the address
+cout << "x = " << x << " The address of x is “ << &x << endl;
+// Return reference
+return x;
+}
+int main( )
+{
+int a = 20;
+int& b = returnValue(a);
+// Print a and its address
+cout << "a = " << a << " The address of a is “ << &a << endl;
+// Print b and its address
+cout << "b = " << b << " The address of b is “ << &b << endl;
+returnValue(a) = 13;
+cout << "a = " << a<< " The address of a is “<< &a << endl;
+return 0;
+}
+
+
+String:
+C++ has in its definition a way to represent sequence of
+characters as an object of class. This class is called std::
+string. String class stores the characters as a sequence of bytes
+with a functionality of allowing access to single byte
+character.
+
+#include <iostream>
+#include <string>
+using namespace std;
+int main ( ) 
+{ 
+string str1 = "Hello"; 
+string str2 = "World"; 
+string str3; 
+int len ; 
+// Copy str1 into str3
+str3 = str1; 
+cout << "str3 : " << str3 << endl; 
+// concatenates str1 and str2
+str3 = str1 + str2; 
+cout << "str1 + str2 : " << str3 << endl;
+// total length of str3 after 
+concatenation
+len = str3.size(); 
+cout << "str3.size() : " << len << endl; 
+return 0; 
+}
