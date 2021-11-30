@@ -1,0 +1,22 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+<title>Font Tag in HTML</title>  
+</head>  
+<body>  
+<h2>Example of  Font Tag in HTML </h2>  
+<p>General  text  without any Font tag attribute value</p>  
+<p>  
+<font color="orange">Text having normal font size and font face . Only  
+changing  
+font   color  </font>  
+</p>  
+<p>  
+<font  face="cursive">Text having different font face.</font>  
+</p>  
+<p>  
+<font size="3">Text with Increased font size having default font type.  
+</font>  
+</p>  
+</body>  
+</html>
